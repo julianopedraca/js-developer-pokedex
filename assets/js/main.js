@@ -18,20 +18,15 @@ function convertPokemonToLi(pokemon) {
 }
 
 const pokemonList = console.log(document.getElementById("pokemonList"));
-pokemonList.innerHTML += '<li>Teste</li>'
-
-fetch(url) //consome a api
     
-pokeApi.getPokemons().then((pokemons) => {
+pokeApi.getPokemons().then((pokemons = []) => {
     const listItems = []
 
-    pokemons.map()
+    const newlist = pokemons.map((pokemon) => {
+        return convertPokemonToLi(pokemon)
+    })
 
-    for (let i = 0; i < pokemons.length; i++) {
-        const pokemon = pokemons[i];
-        listItems.push(convertPokemonToLi(pokemon))
-    }
+    pokemonList.innerHTML += newlist
 
-    console.log(listItems)
 })
 
