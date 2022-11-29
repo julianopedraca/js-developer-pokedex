@@ -172,8 +172,9 @@
     width: 450px;
     padding: 1.3rem;
     min-height: 250px;
-    position: absolute;
+    position: fixed;
     top: 20%;
+    left: 20%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
