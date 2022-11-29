@@ -2,7 +2,6 @@ const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
 
 const overlay = document.getElementById("overlay");
-const closeModalBtn = document.querySelector(".btn-close");
 
 const maxRecords = 151;
 const limit = 10;
