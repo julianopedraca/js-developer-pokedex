@@ -1,6 +1,8 @@
 const pokeApi = {};
 let pokeGender = [];
 
+await getPokemonsGenderRatio()
+
 async function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
   pokemon.number = pokeDetail.id;
@@ -22,9 +24,7 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
     (abilitySlot) => abilitySlot.ability.name
   );
 
-  await getPokemonsGenderRatio()
   pokemon.maleGender = pokeGender.length
-  pokeGender = []
 
   pokemon.abilities = abilities;
 
@@ -55,7 +55,7 @@ function getPokemonsSpecies(url, variavel) {
     .then((speciesGenus) => speciesGenus[variavel]);
 }
 
-function getPokemonsGenderRatio() {
+async function getPokemonsGenderRatio() {
   const url = "https://pogoapi.net/api/v1/pokemon_genders.json";
   return fetch(url)
     .then((response) => response.json())
