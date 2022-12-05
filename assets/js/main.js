@@ -44,7 +44,7 @@ function convertPokemonToLi(pokemon) {
     </tr>
     <tr>
       <th scope="row">Gender Ratio</th>
-      <td>}</td>
+      <td>${pokemon.maleGender}</td>
     </tr>
 
   </table>
@@ -57,7 +57,9 @@ function loadPokemonItens(offset, limit) {
     const newHtml = pokemons.map(convertPokemonToLi).join("");
     pokemonList.innerHTML += newHtml;
   });
+  // console.log(pokeGender)
 }
+
 
 
 // Open Modal

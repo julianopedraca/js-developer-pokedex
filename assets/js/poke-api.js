@@ -1,5 +1,5 @@
 const pokeApi = {};
-const pokeGender = [];
+let pokeGender = [];
 
 async function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
@@ -17,11 +17,14 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.species = await getPokemonsSpecies(pokeDetail.species.url, "genus");
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
-  pokemon.teste = await getPokemonsGenderRatio()
 
   const abilities = pokeDetail.abilities.map(
     (abilitySlot) => abilitySlot.ability.name
-  )
+  );
+
+  await getPokemonsGenderRatio()
+  pokemon.maleGender = pokeGender.length
+  pokeGender = []
 
   pokemon.abilities = abilities;
 
@@ -59,11 +62,10 @@ function getPokemonsGenderRatio() {
     .then((pokemonsData) => {
       for (const obj in pokemonsData) {
         for (const dados of pokemonsData[obj]) {
-          pokeGender.push(dados)
+          if (dados.form === "Normal") {
+            pokeGender.push(dados);
+          }
         }
       }
-    })
+    });
 }
-
-
-// console.log(pokeGenderObj)
