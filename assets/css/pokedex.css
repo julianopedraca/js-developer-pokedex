@@ -10,6 +10,10 @@
   background-color: #a6a877;
 }
 
+.modal.normal {
+  background-color: #a6a877;
+}
+
 .grass {
   background-color: #77c850;
 }
@@ -21,11 +25,22 @@
   background-color: #ee7f30;
 }
 
+.modal.fire {
+  background-color: #ee7f30;
+}
+
 .water {
   background-color: #678fee;
 }
 
+.modal.water {
+  background-color: #678fee;
+}
+
 .electric {
+  background-color: #f7cf2e;
+}
+.modal.electric {
   background-color: #f7cf2e;
 }
 
@@ -33,51 +48,91 @@
   background-color: #98d5d7;
 }
 
+.modal.ice {
+  background-color: #98d5d7;
+}
+
 .ground {
+  background-color: #dfbf69;
+}
+.modal.ground {
   background-color: #dfbf69;
 }
 
 .flying {
   background-color: #a98ff0;
 }
+.modal.flying {
+  background-color: #a98ff0;
+}
 
 .poison {
+  background-color: #a040a0;
+}
+.modal.poison {
   background-color: #a040a0;
 }
 
 .fighting {
   background-color: #bf3029;
 }
+.modal.fighting {
+  background-color: #bf3029;
+}
 
 .psychic {
+  background-color: #f65687;
+}
+.modal.psychic {
   background-color: #f65687;
 }
 
 .dark {
   background-color: #725847;
 }
+.modal.dark {
+  background-color: #725847;
+}
 
 .rock {
+  background-color: #b8a137;
+}
+.modal.rock {
   background-color: #b8a137;
 }
 
 .bug {
   background-color: #a8b720;
 }
+.modal.bug {
+  background-color: #a8b720;
+}
 
 .ghost {
+  background-color: #6e5896;
+}
+.modal.ghost {
   background-color: #6e5896;
 }
 
 .steel {
   background-color: #b9b7cf;
 }
+.modal.steel {
+  background-color: #b9b7cf;
+}
 
 .dragon {
   background-color: #6f38f6;
 }
+.modal.dragon {
+  background-color: #6f38f6;
+}
 
 .fairy {
+  background-color: #f9aec7;
+}
+.modal.fairy {
   background-color: #f9aec7;
 }
 
