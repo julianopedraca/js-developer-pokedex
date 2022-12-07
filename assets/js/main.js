@@ -21,7 +21,10 @@ function convertPokemonToLi(pokemon) {
     <img src="${pokemon.photo}" alt="${pokemon.name}" />
   </div>
 </li>
+
 <div class="modal hidden ${pokemon.type}" id="${pokemon.name}Modal">
+  <span class="number">#${pokemon.number}</span>
+  <span class="name">${pokemon.name}</span>
   <img class="photo" src="${pokemon.photo}" alt="${pokemon.name}" />
   <table>
     <tr>
