@@ -21,8 +21,8 @@ function convertPokemonToLi(pokemon) {
     <img src="${pokemon.photo}" alt="${pokemon.name}" />
   </div>
 </li>
-<div class="modal hidden" id="${pokemon.name}Modal">
-  <img src="${pokemon.photo}" alt="${pokemon.name}" />
+<div class="modal hidden ${pokemon.type}" id="${pokemon.name}Modal">
+  <img class="photo" src="${pokemon.photo}" alt="${pokemon.name}" />
   <table>
     <tr>
       <th scope="row">Species</th>
@@ -34,7 +34,7 @@ function convertPokemonToLi(pokemon) {
     </tr>
     <tr>
       <th scope="row">Weight</th>
-      <td>${pokemon.weight}</td>
+      <td>${pokemon.weight/10} Kg</td>
     </tr>
     <tr>
       <th scope="row">Abilities</th>
@@ -44,11 +44,13 @@ function convertPokemonToLi(pokemon) {
         </ol>
       </td>
     </tr>
+
     <tr>
       <th scope="row">Gender Ratio</th>
       <td>${pokemon.maleGender}</td>
+      <th scope="row"> female Ratio </th>
+      <td>${pokemon.femaleGender}</td>
     </tr>
-
   </table>
 </div>
     `;

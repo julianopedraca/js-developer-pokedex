@@ -1,7 +1,5 @@
 const pokeApi = {};
-const pokeGender = [];
-
-getPokemonsGenderRatio()
+let pokeGender = [];
 
 async function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
@@ -20,16 +18,30 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
 
-
   const abilities = pokeDetail.abilities.map(
     (abilitySlot) => abilitySlot.ability.name
-  );  
+  );
 
-  pokemon.maleGender = pokeGender.length
-  console.log(typeof(pokeGender))
-  console.log(pokeGender)
-  console.log(pokeGender.length)
+  //TODO optimize getPokemons to execute only once
+  await getPokemonsGenderRatio();
 
+  pokemon.maleGender = pokeGender
+    .map((pokemon) => {
+      if (pokemon.pokemon_id === pokeDetail.id) {
+        return pokemon.gender.male_percent;
+      }
+    })
+    .filter((el) => el != undefined);
+
+  pokemon.femaleGender = pokeGender
+    .map((pokemon) => {
+      if (pokemon.pokemon_id === pokeDetail.id) {
+        return pokemon.gender.female_percent;
+      }
+    })
+    .filter((el) => el != undefined);
+
+  pokeGender = [];
 
   pokemon.abilities = abilities;
 
@@ -60,21 +72,17 @@ function getPokemonsSpecies(url, variavel) {
     .then((speciesGenus) => speciesGenus[variavel]);
 }
 
- function getPokemonsGenderRatio() {
+function getPokemonsGenderRatio() {
   const url = "https://pogoapi.net/api/v1/pokemon_genders.json";
   return fetch(url)
     .then((response) => response.json())
-    .then ((pokemonsData) => {
+    .then((pokemonsData) => {
       for (const obj in pokemonsData) {
         for (const dados of pokemonsData[obj]) {
-          if (dados.form === "Normal") {
-             pokeGender.push(dados);
-             console.log(dados)
+          if (dados.form === "Normal" || dados.form === undefined) {
+            pokeGender.push(dados);
           }
         }
       }
-  })
-  .then((results) => results);
+    });
 }
-
-
