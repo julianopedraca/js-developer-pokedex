@@ -31,7 +31,7 @@ function convertPokemonToLi(pokemon) {
     </tr>
     <tr>
       <th scope="row">Height</th>
-      <td>${pokemon.height}</td>
+      <td>${pokemon.height/10} m</td>
     </tr>
     <tr>
       <th scope="row">Weight</th>
@@ -41,7 +41,7 @@ function convertPokemonToLi(pokemon) {
       <th scope="row">Abilities</th>
       <td>
         <ol class="abilities">
-          ${pokemon.abilities.map((abilite) => `<li class="abilite ${abilite}">${abilite}</li>`).join("")}
+          ${pokemon.abilities.map((abilite) => `<li class="abilite ${abilite}">${abilite}</li>`).join(" ")}
         </ol>
       </td>
     </tr>

@@ -6,6 +6,12 @@
   list-style: none;
 }
 
+h1{
+    color: #333940;
+}
+
+
+
 .normal {
   background-color: #a6a877;
 }
@@ -222,6 +228,12 @@
   }
 }
 
+
+.abilities{
+    display: ruby-base-container;
+    list-style-type: none;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -270,8 +282,8 @@
   margin-bottom: -5px;
 }
 .modal .photo {
-  max-width: 80%;
-  /* max-height: 80%; */
+  min-width: 50%;
+  max-width: 60%;
   position: relative;
   top: 40px;
   align-self: center;
