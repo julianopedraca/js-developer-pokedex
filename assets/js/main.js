@@ -154,3 +154,18 @@ function capturePokemon(pokemon) {
   } 
 }
 
+$(window).scroll(function() {
+  if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    offset += limit;
+    const qtdRecordsWithNexPage = offset + limit;
+  
+    if (qtdRecordsWithNexPage >= maxRecords) {
+      const newLimit = maxRecords - offset;
+      loadPokemonItens(offset, newLimit);
+  
+      loadMoreButton.parentElement.removeChild(loadMoreButton);
+    } else {
+      loadPokemonItens(offset, limit);
+    }
+  }
+});
