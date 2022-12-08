@@ -43,6 +43,8 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
 
   pokeGender = [];
 
+  pokemon.pokeballUrl = "https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+
   pokemon.abilities = abilities;
 
   return pokemon;

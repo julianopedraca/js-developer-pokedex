@@ -9,12 +9,17 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
   return `
-<li class="pokemon ${pokemon.type}" onclick="openModal('${pokemon.name}')">
+  <li class="pokemon ${pokemon.type}" onclick="openModal('${pokemon.name}');capturePokemon('${pokemon.name}')">
   <span class="number">#${pokemon.number}</span>
-  <span class="name">${pokemon.name}</span>
+  <div>
+    <span class="name"
+      >${pokemon.name}
+      <img class="pokeball hidden" id="${pokemon.name}pokeball" src="${pokemon.pokeballUrl}" alt="pokeball"/>
+    </span>
+  </div>
   <div class="detail">
-    <ol class="types">
-      ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`) .join("")}
+    <ol class="types">${pokemon.types .map((type) => `
+      <li class="type ${type}">${type}</li>`) .join("")}
     </ol>
     <img src="${pokemon.photo}" alt="${pokemon.name}" />
   </div>
@@ -31,17 +36,19 @@ function convertPokemonToLi(pokemon) {
     </tr>
     <tr>
       <th scope="row">Height</th>
-      <td>${pokemon.height/10} m</td>
+      <td>${pokemon.height / 10} m</td>
     </tr>
     <tr>
       <th scope="row">Weight</th>
-      <td>${pokemon.weight/10} Kg</td>
+      <td>${pokemon.weight / 10} Kg</td>
     </tr>
     <tr>
       <th scope="row">Abilities</th>
       <td>
         <ol class="abilities">
-          ${pokemon.abilities.map((abilite) => `<li class="abilite ${abilite}">${abilite}</li>`).join(" ")}
+          ${pokemon.abilities .map((abilite) => `
+          <li class="abilite ${abilite}">${abilite}</li>
+          `) .join(" ")}
         </ol>
       </td>
     </tr>
@@ -49,14 +56,14 @@ function convertPokemonToLi(pokemon) {
     <tr>
       <th scope="row">Gender Ratio</th>
       <td>${pokemon.maleGender}</td>
-      <th scope="row"> female Ratio </th>
+      <th scope="row">female Ratio</th>
       <td>${pokemon.femaleGender}</td>
     </tr>
   </table>
 </div>
+
     `;
 }
-
 
 function loadPokemonItens(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -64,8 +71,6 @@ function loadPokemonItens(offset, limit) {
     pokemonList.innerHTML += newHtml;
   });
 }
-
-
 
 // Open Modal
 function openModal(pokemon) {
@@ -76,8 +81,6 @@ function openModal(pokemon) {
 }
 
 loadPokemonItens(offset, limit);
-
-
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
@@ -114,3 +117,40 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+let countMaster = 0;
+
+function capturePokemon(pokemon) {
+  const capturePokemon = document.getElementById(pokemon + "pokeball");
+  if (capturePokemon.classList.contains("hidden")) {
+    capturePokemon.classList.remove("hidden");
+    countMaster +=1
+  }
+  if (countMaster === 151 ){
+    console.log(`
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣴⣶⣶⣶⣶⣶⣶⣶⣦⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣿⡿⠿⠛⠛⠋⠉⠉⠉⠉⠉⠙⠛⠻⠿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣿⣷⣄⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣴⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣦⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣠⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣷⡄⠀⠀⠀
+⠀⠀⠀⣼⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀PARABÉNS  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣆⠀⠀
+⠀⠀⣼⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀VOCÊ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣆⠀
+⠀⢰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀É ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⡄
+⠀⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀UM⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣧
+⢸⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀MESTRE  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿
+⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀POKEMON!!⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿
+⢸⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿
+⠈⣿⣿⣿⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⡿
+⠀⢻⣿⡿⢿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠿⠟⠛⠿⢿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣿⡿⣿⣿⡇
+⠀⠈⢿⣿⡄⠉⠛⠿⣿⣷⣶⣤⣤⣀⣠⣿⡿⠋⢠⠴⠒⠒⠲⢤⡈⠻⣿⣷⣀⣠⣤⣴⣶⣿⡿⠿⠋⠁⣰⣿⡟⠀
+⠀⠀⠈⢿⣿⡄⠀⠀⠀⠈⠉⠛⠻⠿⣿⣿⡇⠀⡏⠀⠀⠀⠀⠈⡇⠀⢻⣿⡿⠿⠛⠛⠉⠁⠀⠀⠀⣰⣿⡟⠀⠀
+⠀⠀⠀⠈⢿⣿⣦⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⡀⠻⣄⡀⠀⣀⡴⠃⢠⣿⣿⠁⠀⠀⠀⠀⠀⠀⢀⣼⣿⠟⠀⠀⠀
+⠀⠀⠀⠀⠀⠻⣿⣷⣄⡀⠀⠀⠀⠀⠀⠙⢿⣿⣦⣄⣉⣉⣁⣤⣶⣿⠿⠁⠀⠀⠀⠀⠀⢀⣴⣿⡿⠋⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣦⣀⠀⠀⠀⠀⠀⠉⠛⠿⠿⠿⠿⠟⠋⠁⠀⠀⠀⠀⠀⣠⣴⣿⡿⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣶⣿⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠿⢿⣿⣿⣷⣶⣶⣶⣿⣿⣿⡿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    `)
+  } 
+}
+
