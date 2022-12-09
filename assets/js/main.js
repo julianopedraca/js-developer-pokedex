@@ -31,7 +31,7 @@ function convertPokemonToLi(pokemon) {
   <span class="number">#${pokemon.number}</span>
 </p>
   <span class="name">${pokemon.name}</span>
-  <img class="photo" src="${pokemon.photo}" alt="${pokemon.name}" />
+  <img class="photo" src="${pokemon.photo}" alt="${pokemon.name}"/>
   <table >
     <tr>
       <th scope="row">Species</th>
