@@ -33,13 +33,13 @@ async function convertPokeApiDetailToPokemon(pokeDetail) {
     })
     .filter((el) => el != undefined);
 
-  pokemon.femaleGender = pokeGender
-    .map((pokemon) => {
-      if (pokemon.pokemon_id === pokeDetail.id) {
-        return pokemon.gender.female_percent;
-      }
-    })
-    .filter((el) => el != undefined);
+  // pokemon.femaleGender = pokeGender
+  //   .map((pokemon) => {
+  //     if (pokemon.pokemon_id === pokeDetail.id) {
+  //       return pokemon.gender.female_percent;
+  //     }
+  //   })
+  //   .filter((el) => el != undefined);
 
   pokeGender = [];
 

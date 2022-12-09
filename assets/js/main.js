@@ -29,7 +29,7 @@ function convertPokemonToLi(pokemon) {
   <span class="number">#${pokemon.number}</span>
   <span class="name">${pokemon.name}</span>
   <img class="photo" src="${pokemon.photo}" alt="${pokemon.name}" />
-  <table>
+  <table >
     <tr>
       <th scope="row">Species</th>
       <td>${pokemon.species}</td>
@@ -52,12 +52,9 @@ function convertPokemonToLi(pokemon) {
         </ol>
       </td>
     </tr>
-
     <tr>
       <th scope="row">Gender Ratio</th>
-      <td>${pokemon.maleGender}</td>
-      <th scope="row">female Ratio</th>
-      <td>${pokemon.femaleGender}</td>
+      <td><progress class="progress-bar" value="${pokemon.maleGender*100}" max="100"></progress></td>
     </tr>
   </table>
 </div>

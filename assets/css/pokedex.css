@@ -6,11 +6,9 @@
   list-style: none;
 }
 
-h1{
-    color: #333940;
+h1 {
+  color: #333940;
 }
-
-
 
 .normal {
   background-color: #a6a877;
@@ -233,10 +231,9 @@ h1{
   }
 }
 
-
-.abilities{
-    display: ruby-base-container;
-    list-style-type: none;
+.abilities {
+  display: ruby-base-container;
+  list-style-type: none;
 }
 
 .modal {
@@ -257,17 +254,8 @@ h1{
   background-color: white;
   border-radius: 15px;
   z-index: 2;
-}
-
-.modal .flex {
-  display: flex;
-  justify-content: space-between;
-}
-
-.modal p {
-  font-size: 0.9rem;
-  color: #777;
-  margin: 0.4rem 0 0.2rem;
+  min-width: 300px;
+  min-height: 500px;
 }
 
 .modal .name {
@@ -286,9 +274,9 @@ h1{
   margin-right: 15px;
   margin-bottom: -5px;
 }
+
 .modal .photo {
-  min-width: 50%;
-  max-width: 60%;
+  max-width: 50%;
   position: relative;
   top: 40px;
   align-self: center;
@@ -315,4 +303,22 @@ h1{
   background-color: white;
   border-radius: 15px;
   padding-top: 40px;
+  height: 342px;
+  text-align: left;
+  border-spacing: 13px 22px;
+}
+
+.modal th {
+  color: #878787;
+}
+
+.progress-bar {
+  height: 5px;
+  border-radius: 50px;
+  border: white;
+  background: #F8C8DC;
+}
+
+progress::-moz-progress-bar {
+  background: #76befe;
 }
