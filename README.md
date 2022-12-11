@@ -32,6 +32,9 @@ This project create a pokedex where you can see information about the first gen 
 ## :partying_face: Final Project
 <img src="https://github.com/julianopedraca/js-developer-pokedex/blob/main/pokedex.gif" width="500" height="500"/>
 
+##### Deploy
+##### https://js-developer-pokedex-six.vercel.app/
+
 
 ## :dolls: How To Run On My Computer?
 first clone the project
