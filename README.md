@@ -30,7 +30,7 @@ This project create a pokedex where you can see information about the first gen 
 - <a href ="https://pokeapi.co/api/v2/">PokeApi</a>
 
 ## :dolls: How To Run On My Computer?
-![GIF](https://giphy.com/embed/vMKPuAZimNzBzMWwNR)
+![](https://github.com/julianopedraca/js-developer-pokedex/blob/main/pokedex.gif)
 first clone the project
 ```bash
 $ git clone
