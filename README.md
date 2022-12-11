@@ -13,7 +13,7 @@
 
 This project create a pokedex where you can see information about the first gen pokemons
 
-# Features
+## Features
 
 - Modal pop-up
 - Auto load more at end of the page
@@ -29,8 +29,11 @@ This project create a pokedex where you can see information about the first gen 
 - <a href ="https://pogoapi.net/api/v1/pokemon_genders.json">Pokemon Genders</a>
 - <a href ="https://pokeapi.co/api/v2/">PokeApi</a>
 
+## :partying_face: Final Project
+<img src="https://github.com/julianopedraca/js-developer-pokedex/blob/main/pokedex.gif" width="500" height="500"/>
+
+
 ## :dolls: How To Run On My Computer?
-![](https://github.com/julianopedraca/js-developer-pokedex/blob/main/pokedex.gif)
 first clone the project
 ```bash
 $ git clone
